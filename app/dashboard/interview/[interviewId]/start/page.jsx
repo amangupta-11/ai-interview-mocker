@@ -15,7 +15,6 @@ function StartInterview({ params }) {
   const [Id, setId] = useState(null);
   useEffect(() => {
     if(Id){
-      console.log("function called");
       GetInterviewDetail();
     }
     
@@ -25,11 +24,10 @@ function StartInterview({ params }) {
     async function fetchId(){ 
       const {interviewId}= await params
       setId(interviewId)
-      console.log(interviewId)
 
     }
     fetchId()
-  }, []);
+  }, [params]);
 
 
   /**
@@ -44,26 +42,27 @@ function StartInterview({ params }) {
       .where(eq(MockInterview.mockId, Id));
 
     const jsonMockResp = JSON.parse(result[0]?.jsonMockResp);
-    console.log(jsonMockResp);
     setMockInterviewQuestion(jsonMockResp.questions);
 
     setInterviewData(result[0]);
   };
   return (
     <div>
-      {mockInterviewQuestion&&<div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        {/* Questions */}
-        <QuestionsSections
-          activeQuestionIndex={activeQuestionIndex}
-          mockInterViewQuestion={mockInterviewQuestion}
-        />
+      {mockInterviewQuestion && (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {/* Questions */}
+          <QuestionsSections
+            activeQuestionIndex={activeQuestionIndex}
+            mockInterViewQuestion={mockInterviewQuestion}
+          />
         {/* Video/ Audio Recording */}
         <RecordAnswerSection
           activeQuestionIndex={activeQuestionIndex}
           mockInterViewQuestion={mockInterviewQuestion}
           interviewData={interviewData}
         />
-      </div>}
+      </div>
+      )}
 
       <div className="flex justify-end gap-6">
         {activeQuestionIndex > 0 && <Button disabled={activeQuestionIndex==0}  onClick={()=>setActiveQuestionIndex(activeQuestionIndex-1)}>Previous Question</Button>}

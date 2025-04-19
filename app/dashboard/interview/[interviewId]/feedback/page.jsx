@@ -37,7 +37,7 @@ function Feedback({ params }) {
     const result = await db
       .select()
       .from(UserAnswer)
-      .where(eq(UserAnswer.mockIdRef, params.interviewId))
+      .where(eq(UserAnswer.mockIdRef, Id))
       .orderBy(UserAnswer.id);
 
     setFeedbackList(result);
