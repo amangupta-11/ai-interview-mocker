@@ -8,11 +8,9 @@ export default function Home() {
   return (
    <div>
           <div className="main-container relative bg-black w-screen h-screen overflow-hidden">
-      <div className="blur-circle1 absolute left-[10%] top-[20%] w-[200px] h-[200px] bg-gradient-to-b from-white to-pink rounded-full blur-[120px]"></div>
-      <div className="blur-circle2 absolute right-[10%] top-[20%] w-[200px] h-[200px] bg-gradient-to-b from-white to-pink rounded-full blur-[100px]"></div>
-      
-      {/* Start Landing Page */}
-      <div className="landing-page">
+      <div className="blur-circle1 absolute left-[10%] top-[20%] w-[200px] h-[200px] bg-gradient-to-b from-white to-pink rounded-full blur-[120px] pointer-events-none z-0"></div>
+          <div className="blur-circle2 absolute right-[10%] top-[20%] w-[200px] h-[200px] bg-gradient-to-b from-white to-pink rounded-full blur-[100px] pointer-events-none z-0"></div>
+      <div className="landing-page relative z-10">
         <Header/>
        
         
