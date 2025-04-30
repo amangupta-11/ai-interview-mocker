@@ -58,7 +58,7 @@ function Feedback({ params }) {
         Your overall interview rating <strong  className={avgRating<6?'text-red-600':'text-green-500'} >{avgRating}/10</strong>
       </h2>
 
-      <h2 className="text-sm text-gray-200">
+      <h2 className="text-sm text-black-200">
         Find blow interview question with correct answer, Your answer and
         feedback for improvement{" "}
         
